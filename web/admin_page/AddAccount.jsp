@@ -23,7 +23,7 @@
     </head>
     <body>
     <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" aria-label="Main Navigation">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="adminDashboard.jsp">Welcome, Admin</a>
             <!-- Sidebar Toggle-->
