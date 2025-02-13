@@ -90,15 +90,15 @@ public class EditAccount extends HttpServlet {
         String role = request.getParameter("role");
         String email = request.getParameter("email");
         String address = request.getParameter("address");
-        String email_old = request.getParameter("email_old");
+        String emailOld = request.getParameter("email_old");
         int id = Integer.parseInt(request.getParameter("id"));
 
         AccountDAO acc_dao = new AccountDAO();
-        if (!email.equals(email_old)) {
+        if (!email.equals(emailOld)) {
             List<String> emails = acc_dao.getAllEmail();
             for (String e : emails) {
                 if (e.equals(email)) {
-                    request.setAttribute("email", email_old);
+                    request.setAttribute("email", emailOld);
                     request.setAttribute("fullname", fullname);
                     request.setAttribute("phonenumber", phonenumber);
                     request.setAttribute("address", address);
