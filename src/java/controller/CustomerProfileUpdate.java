@@ -43,7 +43,7 @@ public class CustomerProfileUpdate extends HttpServlet {
                 throw new Exception("All input must be filled!");
             }
 
-            String fullNameRegex = "\"^[\\\\p{L}]+( [\\\\p{L}]+)*$";
+            String fullNameRegex = "^[\\p{L}]+( [\\p{L}]+)*$";
             if (!fullName.matches(fullNameRegex) || fullName.length() < 2 || fullName.length() > 50) {
                 throw new Exception("""
                                     Full Name must > 2 characters and < 50 characters.
