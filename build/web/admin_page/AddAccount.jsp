@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : AddAccount
     Created on : Feb 11, 2025, 1:40:27 PM
     Author     : Aus TUF GAMAING
@@ -9,7 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <!DOCTYPE html>
-<html>
+<html lang="en" xml:lang="en">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -23,7 +23,7 @@
     </head>
     <body>
     <body class="sb-nav-fixed">
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" aria-label="Main Navigation">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" aria-label="Main Navigation">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="adminDashboard.jsp">Welcome, Admin</a>
             <!-- Sidebar Toggle-->
