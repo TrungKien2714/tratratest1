@@ -58,10 +58,13 @@
                             <div class="card-body">
                                 <form action="change-password" method="post">
                                     <input type="hidden" name="id" value="${sessionScope.customer.id}">
-                                    <label>Enter old password</label>
-                                    <input type="password" name="oldPassword" >
-                                    <label>Enter new password</label>
-                                    <input type="password" name="newPassword" >
+
+                                    <label for="oldPassword">Enter old password</label>
+                                    <input type="password" id="oldPassword" name="oldPassword">
+
+                                    <label for="newPassword">Enter new password</label>
+                                    <input type="password" id="newPassword" name="newPassword">
+
                                     <button type="submit" name="submit" value="delete">Change Password</button>
                                 </form>
                             </div>
