@@ -102,9 +102,6 @@ $.fn.ajaxSubmit = function(options) {
     return this;
 };
 
-/** 
- * Normalize and merge user options with default settings 
- */
 function normalizeOptions(options, $form) {
     var method = $form.attr2('method') || 'GET';
     var action = ($form.attr2('action') || '').trim();
@@ -118,9 +115,6 @@ function normalizeOptions(options, $form) {
     }, (typeof options === 'function' ? { success: options } : options));
 }
 
-/**
- * Check if submission should be aborted based on user-defined callbacks.
- */
 function shouldAbortSubmission($form, options) {
     var veto = {};
     $form.trigger('form-pre-serialize', [$form, options, veto]);
@@ -137,9 +131,6 @@ function shouldAbortSubmission($form, options) {
     return false;
 }
 
-/**
- * Prepare form data for submission, including extra data if provided.
- */
 function prepareFormData($form, options) {
     var traditional = options.traditional !== undefined ? options.traditional : $.ajaxSettings.traditional;
     var elements = [];
@@ -153,9 +144,6 @@ function prepareFormData($form, options) {
     return { elements, formData };
 }
 
-/**
- * Configure AJAX options and parameters for submission.
- */
 function prepareAjaxOptions($form, options, formData) {
     var q = $.param(formData.formData, options.traditional);
     if (options.serializedData) {
@@ -177,9 +165,6 @@ function prepareAjaxOptions($form, options, formData) {
     return options;
 }
 
-/**
- * Determines whether to handle file uploads via iframe or FormData/XHR.
- */
 function handleFileUploadOrAjax($form, options, formData) {
     var fileInputs = $('input[type=file]:enabled[value!=""]', $form);
     var hasFileInputs = fileInputs.length > 0;
@@ -195,9 +180,6 @@ function handleFileUploadOrAjax($form, options, formData) {
     }
 }
 
-/**
- * Handles file uploads using XMLHttpRequest (XHR).
- */
 function handleFileUploadXhr($form, options, formData) {
     var formdata = new FormData();
     formData.formData.forEach(item => formdata.append(item.name, item.value));
@@ -230,26 +212,17 @@ function handleFileUploadXhr($form, options, formData) {
     return $.ajax(settings);
 }
 
-/**
- * Handles file uploads using an iframe (for older browsers).
- */
 function handleFileUploadIframe($form, options, formData) {
     // Placeholder function: Implement iframe-based file upload logic.
     log("File upload using iframe is not yet implemented.");
 }
 
-/**
- * Executes an array of callback functions.
- */
 function executeCallbacks(context, callbacks, ...args) {
     if (callbacks) {
         callbacks.forEach(callback => callback.apply(context, args));
     }
 }
 
-/**
- * Deeply serializes extra form data.
- */
 function deepSerialize(extraData) {
     return $.param(extraData).split('&').map(pair => {
         var [key, value] = pair.replace(/\+/g, ' ').split('=');
