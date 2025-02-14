@@ -38,7 +38,7 @@ public class ChangePasswordCustomer extends HttpServlet {
             String newPassword = request.getParameter("newPassword");
 
             if (id.isBlank() || oldPassword.isBlank() || newPassword.isBlank()) {
-                throw new Exception("All input must be filled!");
+                throw new IllegalArgumentException("All input must be filled!");
             }
 
             String passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$";
