@@ -66,7 +66,7 @@ $.fn.attr2 = function() {
     if ( ! hasProp )
         return this.attr(...arguments);
     var val = this.prop.apply(this, arguments);
-    if ( ( val && val.jquery ) || typeof val === 'string' )
+    if (val?.jquery || typeof val === 'string') 
         return val;
     return this.attr.apply(this, arguments);
 };
