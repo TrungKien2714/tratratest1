@@ -43,7 +43,7 @@ public class ChangePasswordCustomer extends HttpServlet {
 
             String passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$";
             if (!newPassword.matches(passwordRegex)) {
-                throw new IllegalArgumentException("Wrong password format!");
+                throw new Exception("Wrong password format!");
             }
 
             int iD = Integer.parseInt(id);
